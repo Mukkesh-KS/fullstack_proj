@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Feedback</h1>
+    <form action="/submit" method="post">
+        <input type="text" name="name" placeholder="Your Name">
+        <textarea name="feedback" placeholder="Your Feedback"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Previous Feedback</h2>
+    <ul>
+        <% feedbacks.forEach(fb=>{ %>
+            <br>
+            
+            <li>
+                <strong><%= fb.name %>:</strong>
+                <p><%= fb.message %></p>
+                <em><%= fb.submitted_at.toLocaleString() %></em>
+            </li>
+       <%  }); %>
+    </ul>
+</body>
+</html>
